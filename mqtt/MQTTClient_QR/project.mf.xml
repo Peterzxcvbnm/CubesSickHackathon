@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest>
-    <application name="TestImage">
-        <crown name="TestImage">
+    <application name="MQTT_Client_Lector">
+        <crown name="MQTT_Client_Lector">
             <desc>user script</desc>
         </crown>
         <meta key="author">Sick Solution Hackathon</meta>
@@ -9,6 +9,6 @@
         <meta key="priority">low</meta>
         <meta key="copy-protected">false</meta>
         <meta key="read-protected">false</meta>
-        <entry default="MQTTClientSample.lua" path="scripts"/>
+        <entry default="MQTTClientMain.lua" path="scripts"/>
     </application>
 </manifest>
