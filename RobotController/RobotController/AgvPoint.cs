@@ -9,18 +9,31 @@ public class AgvPoint
 
     public static AgvPoint ParseString(string input)
     {
+        var inputAsInt = int.Parse(input);
         var point = new AgvPoint
         {
-            X = int.Parse(input[1].ToString()),
-            Y = int.Parse(input[0].ToString()),
-            Direction = (Direction)Enum.Parse(typeof(Direction), input[3].ToString())
+            X = (inputAsInt/100)%10,
+            Y = inputAsInt/1000,
+            Direction = (Direction) (inputAsInt%10)
         };
         return point;
     }
     
     public override string ToString()
     {
-        return $"{Y}{X}0{(int)Direction}";
+        var toReturn = $"{Y}{X}0{(int) Direction}";
+        for(int i = 0; i < 4; i++)
+        {
+            if (toReturn.StartsWith('0'))
+            {
+                toReturn = toReturn[1..];
+            }
+            else
+            {
+                break;
+            }
+        }
+        return toReturn;
     }
     
     public static bool operator ==(AgvPoint a, AgvPoint b)
