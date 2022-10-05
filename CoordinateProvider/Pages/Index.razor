@@ -1,9 +1,36 @@
-﻿@page "/"
+﻿@inject MqttService service
+@page "/"
+@using CoordinateProvider.Services
 
 <PageTitle>Index</PageTitle>
+<div>
+    <img src="RedDot.png" style="position:absolute; left: @(model.x)px; top: @(model.y)px;"/>
+    <img src="Warehouse.png" @onclick="Callback"/>
+</div>
+<div>
+    <EditForm Model="model">
+        <InputText @bind-Value="model.EmployeeId"></InputText>
+    </EditForm>
+</div>
 
-<h1>Hello, world!</h1>
+@code {
+    private FieldModel model = new FieldModel();
 
-Welcome to your new app.
+    private async Task Callback(MouseEventArgs eventArgs)
+    {
+        double x = eventArgs.ClientX;
+        double y = eventArgs.ClientY;
+        model.x = x-10;
+        model.y = y-10;
+        StateHasChanged();
+        await service.PublishEmployeeIdAsync(model.EmployeeId, x, y);
+    }
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+    private class FieldModel
+    {
+        public string EmployeeId { get; set; } = "1234";
+        public double x = 500;
+        public double y = 500;
+    }
+
+}

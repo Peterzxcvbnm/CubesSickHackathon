@@ -7,4 +7,8 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MQTTnet" Version="4.1.1.318" />
+    </ItemGroup>
+
 </Project>
