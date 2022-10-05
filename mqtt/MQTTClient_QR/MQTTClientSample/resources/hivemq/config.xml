@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<hivemq xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="hivemq-config.xsd">
+
+    <listeners>
+        <tcp-listener>
+            <port>1883</port>
+            <bind-address>0.0.0.0</bind-address>
+        </tcp-listener>
+        <tls-tcp-listener>
+            <port>8883</port>
+            <bind-address>0.0.0.0</bind-address>
+            <tls>
+                <!-- Enable specific TLS versions manually -->
+                <!--
+                <protocols>
+                        <protocol>SSLv3</protocol>
+                        <protocol>TLSv1</protocol>
+                        <protocol>TLSv1.1</protocol>
+                        <protocol>TLSv1.2</protocol>
+                </protocols>
+                -->
+                <keystore>
+                    <!-- Configuring the path to the keystore -->
+                    <path>hivemq.jks</path>
+                    <!-- The password of the keystore -->
+                    <password>changeme</password>
+                    <!-- The password of the private key -->
+                    <private-key-password>changeme2</private-key-password>                
+                </keystore>
+                <client-authentication-mode>REQUIRED</client-authentication-mode>
+                <truststore>
+                    <path>hivemq-trust-store.jks</path>
+                    <password>changemeclientstore</password>
+                </truststore>
+            </tls>
+        </tls-tcp-listener>
+    </listeners>
+
+</hivemq>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<manifest>
+    <application name="MQTTClientSample">
+        <crown name="MQTTClientSample">
+            <desc>user script</desc>
+            <serves/>
+        </crown>
+        <meta key="author">AppSpace Sample</meta>
+        <meta key="version">2.5.0</meta>
+        <meta key="licensed">false</meta>
+        <meta key="priority">low</meta>
+        <meta key="tags">Communication</meta>
+        <meta key="read-protected">false</meta>
+        <meta key="copy-protected">false</meta>
+        <entry path="resources">
+            <file type="application">app/mqtt-client-cert-2.pem</file>
+            <file type="application">app/mqtt-client-key-2-nopass.pem</file>
+            <file type="application">app/mqtt-client-key-2.pem</file>
+            <file type="application">app/mybroker-cert.pem</file>
+            <file type="text/xml">hivemq/config.xml</file>
+            <file type="application">hivemq/hivemq-trust-store.jks</file>
+            <file type="application">hivemq/hivemq.jks</file>
+            <file type="application">mosquitto/mosquitto.conf</file>
+            <file type="application">mosquitto/mqtt-client-cert-2.pem</file>
+            <file type="application">mosquitto/mybroker-cert.pem</file>
+            <file type="application">mosquitto/mybroker-key-nopass.pem</file>
+            <file type="text/plain">mosquitto/readme.txt</file>
+        </entry>
+        <entry path="scripts" default="MQTTClientSample.lua">
+            <file type="text/x-lua">MQTTClientSample.lua</file>
+        </entry>
+    </application>
+</manifest>
