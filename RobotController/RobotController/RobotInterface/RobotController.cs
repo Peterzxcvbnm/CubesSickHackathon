@@ -64,11 +64,11 @@ public class RobotController : IRobot
         }
         else if (currentPos.X < nextPoint.X && currentPos.Y > nextPoint.Y)
         {
-            nextPoint.Direction = Direction.West;
+            nextPoint.Direction = Direction.East;
         }
         else if (currentPos.X > nextPoint.X && currentPos.Y < nextPoint.Y)
         {
-            nextPoint.Direction = Direction.East;
+            nextPoint.Direction = Direction.West;
         }
         else if (currentPos.X > nextPoint.X && currentPos.Y > nextPoint.Y)
         {
@@ -76,19 +76,19 @@ public class RobotController : IRobot
         }
         else if (currentPos.X == nextPoint.X && currentPos.Y < nextPoint.Y)
         {
-            nextPoint.Direction = Direction.East;
+            nextPoint.Direction = Direction.North;
         }
         else if (currentPos.X == nextPoint.X && currentPos.Y > nextPoint.Y)
         {
-            nextPoint.Direction = Direction.West;
+            nextPoint.Direction = Direction.South;
         }
         else if (currentPos.X < nextPoint.X && currentPos.Y == nextPoint.Y)
         {
-            nextPoint.Direction = Direction.North;
+            nextPoint.Direction = Direction.East;
         }
         else if (currentPos.X > nextPoint.X && currentPos.Y == nextPoint.Y)
         {
-            nextPoint.Direction = Direction.South;
+            nextPoint.Direction = Direction.West;
         }
     }
 }
