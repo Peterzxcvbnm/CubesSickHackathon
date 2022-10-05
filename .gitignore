@@ -38,3 +38,6 @@ Desktop.ini
 ~*
 RobotController/.idea/.idea.RobotController/.idea/
 *.tar
+**.idea
+
+
