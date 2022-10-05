@@ -5,7 +5,7 @@
 <PageTitle>Index</PageTitle>
 <div>
     <img src="RedDot.png" style="position:absolute; left: @(model.x)px; top: @(model.y)px;"/>
-    <img src="Warehouse.png" @onclick="Callback"/>
+    <img src="Map.png" @onclick="Callback"/>
 </div>
 <div>
     <EditForm Model="model">
@@ -23,14 +23,14 @@
         model.x = x-10;
         model.y = y-10;
         StateHasChanged();
-        await service.PublishEmployeeIdAsync(model.EmployeeId, x, y);
+        await service.PublishEmployeeIdAsync(model.EmployeeId, x-275, y-325);
     }
 
     private class FieldModel
     {
         public string EmployeeId { get; set; } = "1234";
-        public double x = 500;
-        public double y = 500;
+        public double x = 100+275-10;
+        public double y = 100+325-10;
     }
 
 }
