@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafelogSimulator", "SafelogSimulator\SafelogSimulator.csproj", "{3A9E5100-7BD0-4C05-AD1A-4DA5DAB49E29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{A8DCF85D-66BF-4B95-A72D-9C4A4631B1DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A9E5100-7BD0-4C05-AD1A-4DA5DAB49E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A9E5100-7BD0-4C05-AD1A-4DA5DAB49E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A9E5100-7BD0-4C05-AD1A-4DA5DAB49E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A9E5100-7BD0-4C05-AD1A-4DA5DAB49E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8DCF85D-66BF-4B95-A72D-9C4A4631B1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8DCF85D-66BF-4B95-A72D-9C4A4631B1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8DCF85D-66BF-4B95-A72D-9C4A4631B1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8DCF85D-66BF-4B95-A72D-9C4A4631B1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
