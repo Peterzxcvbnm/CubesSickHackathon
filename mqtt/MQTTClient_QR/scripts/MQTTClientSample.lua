@@ -17,14 +17,6 @@
   The sample can be run on the Emulator with a FullFeatured Device Model or any
   device which has the MQTTClient functionality and can connect to the mqtt broker.
 
-  Implementation:
-  TLS can be used by setting USE_TLS to true.
-  Important when using TLS:
-  - Certificate verification will fail if the current time is not set on the device.
-    Time can be set using DateTime.setDateTime or NTPClient API.
-  - Resolving of hostnames only works when a DNS name server is configured for the device.
-    This can be done using DHCP.
-
   More Information:
   This sample app includes a self-signed server certificate / private key pair, as well as
   a client certificate / private key pair.
@@ -37,19 +29,26 @@
 
 ------------------------------------------------------------------------------]]
 --Start of Global Scope---------------------------------------------------------
-
--- Create client
+-- Create TCP ip client for QR Camera
+-- luacheck: globals gClient
+gClient = TCPIPClient.create()
+TCPIPClient.setIPAddress(gClient, '192.168.0.10')
+TCPIPClient.setPort(gClient, 2112)
+TCPIPClient.setFraming(gClient, '\02', '\03', '\02', '\03') -- STX/ETX framing for transmit and receive
+TCPIPClient.register(gClient, 'OnReceive', 'gHandleReceive')
+TCPIPClient.connect(gClient)
+-- Create MQTT client
 local client = MQTTClient.create()
 
 -- IP address of broker, must be adapted to match actual address of the used broker
-local BROKER_IP = '10.151.8.213'
+local BROKER_IP = '192.168.0.69'
 
 local USE_TLS = false
 
 -- Configure connection parameters
 client:setIPAddress(BROKER_IP)
+client:setPort(1883)
 if (USE_TLS) then
-  client:setPort(8883)
   client:setTLSEnabled(true)
   client:setTLSVersion('TLS_V12') -- Use TLS protocol version 1.2
   client:setCABundle('resources/app/mybroker-cert.pem')
@@ -65,15 +64,21 @@ local tmr = Timer.create()
 tmr:setPeriodic(true)
 tmr:setExpirationTime(5000)
 
+-- Setup a timer to send the QR Code to MQTT
+local tmr1 = Timer.create()
+tmr1:setPeriodic(true)
+tmr1:setExpirationTime(1000)
 --End of Global Scope-----------------------------------------------------------
 
 --Start of Function and Event Scope---------------------------------------------
-
+-- Main Loop
 local function handleOnStarted()
   -- Try to open connection.
   client:connect()
   -- Starting timer for reconnection
   tmr:start()
+  tmr1:start()
+  print("handleOnStarted")
 end
 Script.register('Engine.OnStarted', handleOnStarted)
 
@@ -81,7 +86,6 @@ Script.register('Engine.OnStarted', handleOnStarted)
 -- Subscribing to topics is done here.
 local function handleOnConnected()
   print('handleOnConnected')
-  client:subscribe('test/topic1')
 end
 client:register('OnConnected', handleOnConnected)
 
@@ -91,14 +95,6 @@ local function handleOnDisconnected()
 end
 client:register('OnDisconnected', handleOnDisconnected)
 
--- Function is called when a message is published to a subscribed topic
-local function handleOnReceive(topic, data, _, _)
-  print("handleOnReceive: topic '" .. topic .. "' message '" .. data .. "'")
-  -- This sample publishes the received messages to test/topic2
-  client:publish( 'test/topic2', "MQTTClient API works. Received '" .. data .. "'" )
-end
-client:register('OnReceive', handleOnReceive)
-
 -- Function is called periodically on timer expiration
 local function handleReconnectTimer()
   if (not client:isConnected()) then
@@ -106,6 +102,31 @@ local function handleReconnectTimer()
     client:connect()
   end
 end
+
+local function SendQR()
+  -- Configure QR Camera --
+  print("Trigger sent")
+  gClient:transmit("sMN mTCgateon")
+  Script.sleep(500)
+  gClient:transmit("sMN mTCgateoff")
+
+  function gHandleReceive(data)
+    if data == "NoRead" then
+      print("#####")
+      print(data)
+      print("#####")
+    elseif data=="sAN mTCgateon 1" or data=="sAN mTCgateoff 1" then
+      do end
+    else
+      client:publish( '/card_scanner/1/current_employee',data)
+      print("$$$$")
+      print(data)
+      print("$$$$")
+    end
+  end
+end
+
 tmr:register('OnExpired', handleReconnectTimer)
+tmr1:register('OnExpired', SendQR)
 
 --End of Function and Event Scope------------------------------------------------
