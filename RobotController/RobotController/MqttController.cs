@@ -7,7 +7,7 @@ namespace RobotController;
 
 public class MqttController
 {
-    private MqttClient _client;
+    private IMqttClient _client;
     private string _brokerAddress = Environment.GetEnvironmentVariable("MQTT_BROKER_ADDRESS") ?? "10.10.10.10";
     private int _brokerPort = int.TryParse(Environment.GetEnvironmentVariable("MQTT_BROKER_PORT"), out var port) ? port : 1883;
     private string _clientId = Environment.GetEnvironmentVariable("BOT_ID") ?? "N/A";
@@ -16,7 +16,7 @@ public class MqttController
     public event Func<string, Task>? OnCardScanned; 
     public event Func<Coordinate, Task>? OnCoordinateReceived; 
 
-    public async Task Connect()
+    public async Task<IMqttClient> Connect()
     {
         /*
          * This sample creates a simple MQTT client and connects to a public broker.
@@ -27,22 +27,24 @@ public class MqttController
 
         var mqttFactory = new MqttFactory();
 
-        using var mqttClient = mqttFactory.CreateMqttClient();
+        _client = mqttFactory.CreateMqttClient();
         // Use builder classes where possible in this project.
         var mqttClientOptions = new MqttClientOptionsBuilder().WithTcpServer(_brokerAddress).Build();
         
-        mqttClient.ApplicationMessageReceivedAsync += OnMqttClientOnApplicationMessageReceivedAsync;
+        _client.ApplicationMessageReceivedAsync += OnMqttClientOnApplicationMessageReceivedAsync;
 
         // This will throw an exception if the server is not available.
         // The result from this message returns additional data which was sent 
         // from the server. Please refer to the MQTT protocol specification for details.
-        var response = await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
+        await _client.ConnectAsync(mqttClientOptions, CancellationToken.None);
 
         Console.WriteLine("The MQTT client is connected.");
 
         await Subscribe(_cardScannerTopic);
         
         Console.WriteLine("Subscribed to topic: " + _cardScannerTopic);
+
+        return _client;
     }
 
     private Task OnMqttClientOnApplicationMessageReceivedAsync(MqttApplicationMessageReceivedEventArgs e)

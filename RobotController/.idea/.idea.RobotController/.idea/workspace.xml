@@ -4,7 +4,14 @@
     <projectFile>RobotController/RobotController.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e7185ed-d3c0-456e-acad-abcf7fc4e77e" name="Changes" comment="" />
+    <list default="true" id="0e7185ed-d3c0-456e-acad-abcf7fc4e77e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RobotController/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RobotController/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/Controller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/Coordinate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/Coordinate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/GridConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/GridConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/MqttController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/MqttController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +24,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8fe5b9fa0d07425ba30fafd53baa5a7ea23880/18/479715e9/Environment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c233b9b79e0a4bef84876dfd3d9e90c049600/d1/de734dd2/MqttClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/88cab915cad78a64ecccaef15933885bff225d8ee2a44e997bccdafebc6e8da9/IMqttClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/Controller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/Coordinate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/GridConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/MqttController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/Point.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/RobotInterface/IRobot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/RobotInterface/RobotController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/Settings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RobotController/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664911224095</updated>
-      <workItem from="1664911230088" duration="6257000" />
+      <workItem from="1664911230088" duration="8018000" />
     </task>
     <servers />
   </component>

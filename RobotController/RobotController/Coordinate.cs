@@ -43,4 +43,9 @@ public class Coordinate
     {
         return HashCode.Combine(X, Y);
     }
+
+    public double DistanceTo(Coordinate pointCoordinate)
+    {
+        return Math.Sqrt(Math.Pow(X - pointCoordinate.X, 2) + Math.Pow(Y - pointCoordinate.Y, 2));
+    }
 }
