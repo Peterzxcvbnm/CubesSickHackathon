@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e7185ed-d3c0-456e-acad-abcf7fc4e77e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RobotController/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RobotController/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RobotController/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RobotController/Coordinate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/Coordinate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RobotController/GridConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/GridConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RobotController/MqttController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/MqttController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RobotController/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/RobotInterface/RobotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/RobotInterface/RobotController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664911224095</updated>
-      <workItem from="1664911230088" duration="8018000" />
+      <workItem from="1664911230088" duration="9287000" />
     </task>
     <servers />
   </component>
