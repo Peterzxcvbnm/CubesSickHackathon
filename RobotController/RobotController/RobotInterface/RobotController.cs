@@ -6,7 +6,7 @@ namespace RobotController.RobotInterface;
 public class RobotController : IRobot
 {
     private HttpClient _client = new HttpClient();
-    private string _robotUrl = Environment.GetEnvironmentVariable("ROBOT_URL") ?? "10.10.10.20";
+    private string _robotUrl = Environment.GetEnvironmentVariable("ROBOT_URL") ?? "https://10.10.10.20:8900";
     private int currentPos = 0;
     
     public async Task Goto(int index)
@@ -33,8 +33,15 @@ public class RobotController : IRobot
                 }
             }
         });
-        var response = await _client.PostAsync(_robotUrl + "api/instantActions", content);
+        try
+        {
+            var response = await _client.PostAsync(_robotUrl + "api/instantActions", content);
 
-        response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message + e.StackTrace);
+        }
     }
 }

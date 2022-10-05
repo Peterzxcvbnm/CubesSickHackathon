@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0e7185ed-d3c0-456e-acad-abcf7fc4e77e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RobotController/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RobotController/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/MqttController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/MqttController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/RobotController.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/RobotController.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/RobotInterface/RobotController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/RobotInterface/RobotController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RobotController/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/RobotController/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +53,13 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="RobotController" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/RobotController/bin/Debug/net6.0/RobotController.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RobotController/bin/Debug/net6.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <envs>
+        <env name="BOT_ID" value="1" />
+      </envs>
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -61,7 +68,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net6.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -75,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664911224095</updated>
-      <workItem from="1664911230088" duration="10671000" />
+      <workItem from="1664911230088" duration="15299000" />
     </task>
     <servers />
   </component>
@@ -97,5 +104,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/RobotController/RobotInterface/RobotController.cs</url>
+          <line>13</line>
+          <properties documentPath="C:\Users\peter\OneDrive\Dokumenter\Github\CubesSickHackathon\RobotController\RobotController\RobotInterface\RobotController.cs" initialLine="13" containingFunctionPresentation="method 'Goto'">
+            <startOffsets>
+              <option value="386" />
+            </startOffsets>
+            <endOffsets>
+              <option value="410" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

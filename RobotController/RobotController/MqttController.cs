@@ -10,7 +10,7 @@ public class MqttController
     private IMqttClient _client;
     private string _brokerAddress = Environment.GetEnvironmentVariable("MQTT_BROKER_ADDRESS") ?? "10.10.10.10";
     private int _brokerPort = int.TryParse(Environment.GetEnvironmentVariable("MQTT_BROKER_PORT"), out var port) ? port : 1883;
-    private string _clientId = Environment.GetEnvironmentVariable("BOT_ID") ?? "N/A";
+    private string _clientId = Environment.GetEnvironmentVariable("BOT_ID") ?? "unassigned";
     private string _cardScannerTopic => $"/card_scanner/{_clientId}/current_employee";
     
     public event Func<string, Task>? OnCardScanned; 
@@ -41,8 +41,6 @@ public class MqttController
         Console.WriteLine("The MQTT client is connected.");
 
         await Subscribe(_cardScannerTopic);
-        
-        Console.WriteLine("Subscribed to topic: " + _cardScannerTopic);
 
         return _client;
     }
