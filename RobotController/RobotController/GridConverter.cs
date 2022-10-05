@@ -4,7 +4,7 @@ namespace RobotController;
 
 public class GridConverter
 {
-    private Dictionary<Coordinate, int> _indexByCoordinate = new();
+    private Dictionary<Coordinate, string> _indexByCoordinate = new();
 
     public GridConverter(List<Point> points)
     {
@@ -14,7 +14,7 @@ public class GridConverter
         }
     }
     
-    public int GetIndex(Coordinate coordinate)
+    public string GetIndex(Coordinate coordinate)
     {
         if(_indexByCoordinate.TryGetValue(coordinate, out var index))
         {
