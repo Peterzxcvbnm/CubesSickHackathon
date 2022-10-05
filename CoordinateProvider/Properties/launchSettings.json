@@ -14,7 +14,10 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7283;http://localhost:5249",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Mqtt:EmployeeIdTopic": "coordinate_provider/{0}/coordinate",
+        "Mqtt:Server": "localhost",
+        "Mqtt:Port": "1883"
       }
     },
     "IIS Express": {

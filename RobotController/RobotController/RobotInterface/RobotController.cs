@@ -7,12 +7,27 @@ public class RobotController : IRobot
 {
     private HttpClient _client = new HttpClient();
     private string _robotUrl = Environment.GetEnvironmentVariable("ROBOT_URL") ?? "https://10.10.10.20:8900";
-    private int currentPos = 0;
+    private AgvPoint currentPos = null;
     
-    public async Task Goto(int index)
+    public async Task Goto(string index)
     {
-        if (currentPos == index) return;
-        currentPos = index;
+        var nextPoint = AgvPoint.ParseString(index);
+        if (currentPos == nextPoint) return;
+
+        if (currentPos.X < nextPoint.X && currentPos.Y < nextPoint.Y)
+        {
+            nextPoint.Direction = Direction.East;
+        }else if (currentPos.X < nextPoint.X && currentPos.Y > nextPoint.Y)
+        {
+            nextPoint.Direction = Direction.West;
+        }else if (currentPos.X > nextPoint.X && currentPos.Y < nextPoint.Y)
+        {
+            nextPoint.Direction = Direction.East;
+        }else if (currentPos.X > nextPoint.X && currentPos.Y > nextPoint.Y)
+        {
+            nextPoint.Direction = Direction.West;
+        }
+
         var content = JsonContent.Create(new RootDto()
         {
             InstantActions = new List<InstantAction>
@@ -27,17 +42,20 @@ public class RobotController : IRobot
                         new()
                         {
                             Key = "end",
-                            Value = index.ToString()
+                            Value = nextPoint.ToString()
                         }
                     }
                 }
             }
         });
+        Console.WriteLine("Going to: " + nextPoint.ToString());
         try
         {
-            var response = await _client.PostAsync(_robotUrl + "api/instantActions", content);
+            var response = await _client.PostAsync(_robotUrl + "/api/instantActions", content);
 
             response.EnsureSuccessStatusCode();
+
+            currentPos = nextPoint;
         }
         catch (Exception e)
         {

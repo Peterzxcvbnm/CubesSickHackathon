@@ -2,5 +2,5 @@
 
 public interface IRobot
 {
-    Task Goto(int index);
+    Task Goto(string index);
 }
